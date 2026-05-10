@@ -1,21 +1,306 @@
-MIT License
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Mubarak - Global Premium Greetings</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2274/2274813.png">
 
-Copyright (c) 2026 hatwhite097-97
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --soft-gold: #f4e4bc;
+            --bg-cream: #fdfaf4;
+            --text-dark: #3e2723;
+            --glass: rgba(255, 255, 255, 0.85);
+        }
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: url('https://d.uguu.se/JVsKFZBD.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Floating Decoration - Maua yanayocheza taratibu */
+        .decor-element {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.5;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .full-page {
+            min-height: 100vh;
+            background: rgba(253, 250, 244, 0.4); /* Overlay laini kwa ajili ya macho */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* Navigation Laini */
+        nav {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            z-index: 10;
+        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--text-dark); font-weight: 700; }
+
+        /* Main Container - Haina vibox vikali */
+        .content-wrapper {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            width: 100%;
+            max-width: 600px;
+            border-radius: 50px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.5);
+            z-index: 10;
+            transition: all 0.5s ease;
+        }
+
+        h1 { font-family: 'Amiri', serif; font-size: 3.5rem; color: var(--primary-gold); margin-bottom: 10px; line-height: 1.1; }
+        p.intro { font-size: 0.9rem; color: #7f8c8d; letter-spacing: 1px; margin-bottom: 30px; }
+
+        /* Input Styles - Modern & Round */
+        .input-group { margin-bottom: 25px; text-align: left; }
+        .input-group label { display: block; font-size: 0.75rem; font-weight: 600; color: var(--primary-gold); margin-left: 15px; margin-bottom: 8px; text-transform: uppercase; }
+        
+        input {
+            width: 100%;
+            padding: 18px 25px;
+            border-radius: 40px;
+            border: none;
+            background: rgba(255,255,255,0.9);
+            font-size: 1rem;
+            color: var(--text-dark);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            outline: none;
+            transition: 0.3s;
+        }
+        input:focus { box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15); transform: translateY(-2px); }
+
+        /* Button ya Dhahabu */
+        .btn-gold {
+            background: linear-gradient(135deg, #d4af37 0%, #b38728 100%);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 40px;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 15px 35px rgba(179, 135, 40, 0.3);
+            transition: 0.4s;
+            margin-top: 10px;
+        }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 20px 45px rgba(179, 135, 40, 0.4); }
+
+        /* Display Area (Inaficha Fomu) */
+        #display-section { display: none; text-align: left; animation: fadeIn 0.8s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .typing-box { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--primary-gold); text-align: center; margin-bottom: 30px; font-style: italic; }
+        
+        .message-content { background: rgba(255,255,255,0.5); padding: 25px; border-radius: 30px; margin-bottom: 25px; }
+        .lang-label { font-size: 0.65rem; font-weight: 700; color: #bdc3c7; margin-bottom: 5px; display: block; }
+        .msg-text { font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px; color: #444; }
+        .arabic-text { font-family: 'Amiri', serif; font-size: 1.6rem; text-align: right; color: var(--text-dark); margin-bottom: 20px; line-height: 1.6; }
+
+        .share-wa {
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.2);
+            transition: 0.3s;
+        }
+        .share-wa:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(37, 211, 102, 0.3); }
+
+        /* SEO Section - Inafanya page iwe ndefu kwa Adsense */
+        .seo-section {
+            max-width: 800px;
+            margin-top: 60px;
+            text-align: center;
+            color: #5d4037;
+            padding-bottom: 100px;
+        }
+        .seo-section h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 20px; }
+        .seo-section p { margin-bottom: 20px; line-height: 2; opacity: 0.8; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .content-wrapper { padding: 35px 25px; border-radius: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Maua ya mapambo pembeni -->
+    <img src="https://cdn-icons-png.flaticon.com/512/616/616614.png" class="decor-element" style="width:50px; top:10%; left:5%;">
+    <img src="https://cdn-icons-png.flaticon.com/512/616/616614.png" class="decor-element" style="width:40px; bottom:20%; right:5%; animation-delay: 2s;">
+
+    <div class="full-page">
+        <nav>
+            <div class="logo">EID PORTAL</div>
+            <div style="font-size: 0.8rem; color: var(--primary-gold); font-weight: bold;">🌙 2025 EDITION</div>
+        </nav>
+
+        <div class="content-wrapper" id="main-card">
+            
+            <!-- FORM SECTION -->
+            <div id="form-section">
+                <h1>Eid Mubarak</h1>
+                <p class="intro">~ SHEREHEKEA KWA STYLE YA KISASA ~</p>
+
+                <div class="input-group">
+                    <label>Jina lako (Mtumaji)</label>
+                    <input type="text" id="sender" placeholder="Andika jina lako hapa...">
+                </div>
+
+                <div class="input-group">
+                    <label>Jina la Rafiki (Mpokeaji)</label>
+                    <input type="text" id="receiver" placeholder="Andika jina la rafiki...">
+                </div>
+
+                <button class="btn-gold" onclick="createBlessing()">Tengeneza Salamu ✨</button>
+            </div>
+
+            <!-- RESULT SECTION -->
+            <div id="display-section">
+                <div id="typing" class="typing-box"></div>
+                
+                <div class="message-content">
+                    <span class="lang-label">AL-ARABIYYA (OMAN & GULF)</span>
+                    <p class="arabic-text" id="ar-out"></p>
+
+                    <span class="lang-label">ENGLISH (GLOBAL)</span>
+                    <p class="msg-text" id="en-out"></p>
+
+                    <span class="lang-label">KISWAHILI (EAST AFRICA)</span>
+                    <p class="msg-text" id="sw-out"></p>
+                </div>
+
+                <a href="#" id="waLink" class="share-wa">
+                    <i class="fa-brands fa-whatsapp"></i> Tuma kwa WhatsApp
+                </a>
+
+                <button onclick="resetApp()" style="background:none; border:none; color:var(--primary-gold); margin-top:30px; cursor:pointer; width:100%; font-weight:700; text-decoration: underline;">
+                    ⬅ Tengeneza nyingine kwa mtu mwingine
+                </button>
+            </div>
+        </div>
+
+        <!-- SEO/EXTRA CONTENT SECTION -->
+        <div class="seo-section">
+            <h2>Baraka za Eid Duniani kote</h2>
+            <p>Eid al-Fitr ni wakati wa kipekee ambapo mamilioni ya watu duniani kote huungana kwa upendo. Iwe upo Muscat Oman, London, au Dar es Salaam, ujumbe wa amani ni mmoja. Website hii inakusaidia kuvunja mipaka ya umbali kwa kutoa salamu zilizotengenezwa kwa umakini mkubwa.</p>
+            
+            <p>Tunatambua thamani ya neno "Eid Mubarak". Ndiyo maana tumeweka lugha ya Kiarabu yenye ufasaha, Kiingereza chenye kishindo, na Kiswahili chetu cha asili chenye mahaba tele. Kushiriki salamu hizi huongeza ukaribu na kudumisha undugu wetu wa kibinadamu.</p>
+
+            <p>Mwenyezi Mungu akubariki unapotuma salamu hii, akuzidishie kheri katika maisha yako, na akupe furaha isiyo na kifani siku hii ya leo na siku zote zijazo. Eid Saeed!</p>
+            
+            <div style="margin-top: 40px; opacity: 0.5; font-size: 0.7rem;">
+                © 2025 International Greetings Portal | AdSense Ready | No Corners, Only Circles.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createBlessing() {
+            const s = document.getElementById('sender').value;
+            const r = document.getElementById('receiver').value;
+
+            if(!s || !r) {
+                alert("Tafadhali andika majina yote mawili ili kuendelea!");
+                return;
+            }
+
+            // Hide form, Show result
+            document.getElementById('form-section').style.display = 'none';
+            document.getElementById('display-section').style.display = 'block';
+
+            // Ujumbe mrefu na nzur sana
+            const ar = `إلى ${r} العزيز، بمناسبة عيد الفطر السعيد، يبعث لك ${s} أحر التهاني وأجمل التبريكات. سائلين المولى عز وجل أن يتقبل منكم الطاعات، ويجعل أيامكم كلها سعادة وهناء. كل عام وأنتم بخير!`;
+            const en = `To the wonderful ${r}, on this blessed Eid, ${s} wishes you a life filled with golden opportunities and divine happiness. May the light of Allah guide you to new heights and fill your home with laughter and endless peace. Eid Mubarak!`;
+            const sw = `Kwa rafiki yangu wa dhahabu ${r}, katika siku hii ya kheri, ${s} anakutakia maisha yenye baraka tere, afya imara na riziki isiyo na mwisho. Mwenyezi Mungu azijaze kheri kila hatua unayopiga na akupe kila hitaji la moyo wako. Eid Mubarak kwako na jamaa zako!`;
+
+            document.getElementById('ar-out').innerText = ar;
+            document.getElementById('en-out').innerText = en;
+            document.getElementById('sw-out').innerText = sw;
+
+            // Typing effect
+            let i = 0;
+            const txt = `${s} anakutakia...`;
+            const speed = 100;
+            function typeWriter() {
+                if (i < txt.length) {
+                    document.getElementById("typing").innerHTML += txt.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+            }
+            typeWriter();
+
+            // WhatsApp link logic
+            const currentUrl = window.location.href.split('?')[0];
+            const waText = `*${s}* amekutumia salamu ya kipekee ya *Eid Mubarak*! 🌙✨\n\nFungua hapa uisome:\n${currentUrl}?f=${encodeURIComponent(s)}&t=${encodeURIComponent(r)}`;
+            document.getElementById('waLink').href = `https://wa.me/?text=${encodeURIComponent(waText)}`;
+        }
+
+        function resetApp() {
+            // Rudisha kila kitu mwanzo
+            document.getElementById('sender').value = "";
+            document.getElementById('receiver').value = "";
+            document.getElementById('typing').innerHTML = "";
+            document.getElementById('display-section').style.display = 'none';
+            document.getElementById('form-section').style.display = 'block';
+            window.history.pushState({}, document.title, window.location.pathname); // Futa URL params
+        }
+
+        // Check if shared
+        window.onload = function() {
+            const p = new URLSearchParams(window.location.search);
+            const f = p.get('f');
+            const t = p.get('t');
+            if(f && t) {
+                document.getElementById('sender').value = f;
+                document.getElementById('receiver').value = t;
+                createBlessing();
+            }
+        }
+    </script>
+
+</body>
+</html>
